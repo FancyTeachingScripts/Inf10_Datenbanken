@@ -1,0 +1,97 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sty/MainPackage}[]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Optionen 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifloesung
+\newif\ifbeamer
+\newif\ifavenir
+\newif\ifletzterstand
+\newif\ifaufraeumen
+\newif\ifeinzelstunden
+\newif\iftimer
+\newif\ifqrcodes
+\newif\ifattachments
+
+\DeclareOption{presentation}{ \beamertrue }
+\DeclareOption{loesung}{ \loesungtrue} 
+\DeclareOption{avenir}{ \avenirtrue } 
+\DeclareOption{letzterstand}{ \letzterstandtrue } 
+\DeclareOption{einzelstunden}{ \einzelstundentrue } 
+\DeclareOption{aufraeumen}{ \aufraeumentrue } 
+\DeclareOption{timer}{ \timertrue } 
+\DeclareOption{attachements}{ \attachmentstrue } 
+\DeclareOption{qrcodes}{ \qrcodestrue } 
+
+
+\ProcessOptions\relax
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Documentenklasse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifbeamer
+  \documentclass[aspectratio=169]{beamer}
+\else
+  \documentclass[a4paper]{article}
+\fi 
+% \@ifclassloaded{beamer}{}{%
+%   \newcommand{\pause}{}%
+% }
+\providecommand{\pause}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Imports
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{sty/1_packages}
+\RequirePackage{sty/1_ForwardDeclaration}
+\RequirePackage{sty/2_General}
+\graphicspath{{./img/}}
+\vbadness=10000
+\hbadness=99999
+\setlength{\parindent}{0pt}
+\setlength\parindent{0pt}
+
+%%%%%%%%%%%%%
+\ifavenir
+  \setmainfont{AvenirNextLTPro}[
+    Path = sty/fonts/,
+    Extension = .otf,
+    UprightFont = *-Regular,
+    BoldFont = *-Demi,
+    ItalicFont = *-Italic,
+    BoldItalicFont = *-DemiItalic
+  ]
+\else
+  \renewcommand*\familydefault{\sfdefault} 
+\fi
+%%%%%%%%%%%%%
+\RequirePackage{sty/3_Loesung} 
+\RequirePackage{sty/4_Info}
+\RequirePackage{sty/4_Skript}
+\RequirePackage[plain]{sty/SummaryZoom}
+%%%%%%%%%%%%%
+\ifbeamer
+  \RequirePackage{sty/0_Presentation}
+\else
+  \RequirePackage{sty/0_Arbeitsblatt}
+\fi
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

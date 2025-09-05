@@ -1,14 +1,47 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Optionen festlegen 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[
+    %presentation,  % Präsentationsmodus
+    %loesung,        % Auskommentiert: Angabe
+    letzterstand,   % 'aktualisiert am xx' im Header anzeigen 
+    einzelstunden,  % Sections für Einzelstunden (nur Präsentation)
+    %aufraeumen,    % Bitte aufräumen Folie am Ende von Einzelstunden
+    %timer,         % Wo konfiguriert Timer anzeigen
+    %attachements,  % attach template and solution files (e.g. .xlsx)
+    qrcodes,       % show additional qrcodes for URLs
+    avenir          % Avenir Next LT Pro verwenden
+]{sty/MainPackage}
 
-\title{Skript}
-\author{Valentin Titus Herrmann }
-\date{September 2025}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HIER DIE INHALTE EINFÜGEN ODER IMPROTIEREN (empfohlen)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % \Testart{Skript}
+ % \Klasse{09}
+ % \Fach{Informatik}
+ % \Titel{Tabellenkalkulation}
+% \renewcommand{\Content}{Was auch immer der Inhalt ist}
+\input{2025-2026/ExcelSkript}
+
+% \renewcommand{\Content}{
+%     \mysession{Stunde 1}{
+%         \input{Aufgaben/TabKalk_DFD/H08_WennDann} 
+
+%         \input{Aufgaben/TabKalk_DFD/A07_FktModellierung}
+%     }
+% }
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Hier nichts ändern !
+%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-
-\maketitle
-
-\section{Introduction}
-
 \end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !!! IMMER MIT XELATEX KOMPILIEREN !!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
