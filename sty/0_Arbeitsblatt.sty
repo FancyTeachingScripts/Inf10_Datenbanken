@@ -27,7 +27,7 @@
 % Define first page style with larger headsep
 \fancypagestyle{firstpage}{%
   \setlength{\headsep}{35pt}
-  \fancyhead[L]{\includesvg[height=9mm]{img/logo.svg}}
+  \fancyhead[L]{\includegraphics[height=9mm]{sty/img/logo_\theme.pdf}}
   \fancyhead[C]{{\Large \Testarttesttext~\Nrtext:~\Titeltext}}
   \ifletzterstand
     \fancyhead[R]{{\large \Fachtext~\Klassetext\\\Datumtext}}
@@ -68,11 +68,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%% Neue Umgebungen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newlength{\pardefault}
-\setlength{\pardefault}{\parindent}
-\newcommand{\neverindent}{ \setlength{\parindent}{0pt} }
-\newcommand{\autoindent}{ \setlength{\parindent}{\pardefault} }
 
 
 \endinput

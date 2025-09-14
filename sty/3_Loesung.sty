@@ -11,9 +11,25 @@
     \ifbeamer
         \stepcounter{lsgcount}
         \onslide<\value{lsgcount}-> 
-            {{\color{\LFarbe} \fontspec{Comic Sans MS} #1} }%
+            {{
+                \color{\LFarbe}
+                \renewcommand{\umldrawcolor}{\LFarbe}
+                \renewcommand{\umltextcolor}{\LFarbe}
+                \fontspec{Comic Sans MS} 
+                #1
+                \renewcommand{\umldrawcolor}{\TFarbe}
+                \renewcommand{\umltextcolor}{\TFarbe}
+            }}%
     \else
-        { \color{\LFarbe} \fontspec{Comic Sans MS} #1}
+        { 
+            \color{\LFarbe}
+            \renewcommand{\umldrawcolor}{\LFarbe}
+            \renewcommand{\umltextcolor}{\LFarbe}
+            \fontspec{Comic Sans MS} 
+            #1
+            \renewcommand{\umldrawcolor}{\TFarbe}
+            \renewcommand{\umltextcolor}{\TFarbe}
+        }
     \fi
 }
 
@@ -77,23 +93,26 @@
 
 
 \newcommand{\LoesungTikz}[1]{
-    \begin{tikzpicture}[
-                % Define styles
-                box/.style={rectangle, draw=\LFarbe, very thick, rounded corners, minimum width=3cm, minimum height=1cm,  text centered, text=\LFarbe, font=\large},
-                oval/.style={ellipse, draw=\LFarbe, very thick, minimum width=3cm, minimum height=1.5cm, text centered, text=\LFarbe, font=\large},
-                arrow/.style={-Stealth, thick, draw=\LFarbe},
-                annotation/.style={text=colC!90!\LFarbe, font=\large}
-            ]
-            #1
-    \end{tikzpicture}
+    \ifloesung
+        \LSG{
+            \begin{tikzpicture}[
+                        % Define styles
+                        box/.style={rectangle, draw=\LFarbe, very thick, rounded corners, minimum width=3cm, minimum height=1cm,  text centered, text=\LFarbe, font=\large},
+                        oval/.style={ellipse, draw=\LFarbe, very thick, minimum width=3cm, minimum height=1.5cm, text centered, text=\LFarbe, font=\large},
+                        arrow/.style={-Stealth, thick, draw=\LFarbe},
+                        annotation/.style={text=colC!90!\LFarbe, font=\large}
+                    ]
+                    #1
+            \end{tikzpicture}
+        }
+    \fi
 }
 
 
 %Loesung bzw. Karo
 \newcommand{\LoesungKaroTikz}[2]{
     \ifloesung
-        \kariert{#2}
-        \LSG{\LoesungTikz{#1}}
+        \LoesungTikz{#1}
     \else
         \kariert{#2}
     \fi

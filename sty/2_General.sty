@@ -2,10 +2,17 @@
 \ProvidesPackage{sty/2_General}[]
 
 
-\usetikzlibrary{shapes.geometric, arrows, positioning, shapes.geometric, arrows.meta, calc}
-\providecommand{\umltextcolor}{black}
-%\renewcommand{\umlfillcolor}{white}
-\providecommand{\umldrawcolor}{black}
+\usetikzlibrary{shapes.geometric, arrows, positioning, shapes.geometric, arrows.meta, calc, bending,fadings}
+
+
+\renewcommand{\umltextcolor}{\TFarbe}
+\ifbeamer
+    \renewcommand{\umlfillcolor}{black}
+\else
+    \renewcommand{\umlfillcolor}{white}
+\fi
+\renewcommand{\umldrawcolor}{\TFarbe}
+
 \renewcommand{\emph}[1]{\textbf{#1}}
 \providecommand{\currentsection}{\nameref{\thesection}}
 
@@ -38,6 +45,12 @@ draw=black]
 
 \tikzstyle{arrow} = [thick,->,>=stealth]
 \@ifundefined{NC@rewrite@C}{\newcolumntype{C}{>{\Centering\hspace{0pt}}X}}{}
+
+\tikzstyle{dfddata} =[box, 
+    rounded corners=1pt,  
+    minimum width=1pt]
+
+\tikzset{box/.style={draw, rectangle, rounded corners=3pt, align=center}}
 
 
 \newcommand\calcVerticalBoxes[2]{%
@@ -76,16 +89,70 @@ draw=black]
 }
 
 \renewcommand{\hinweis}[1]{
-  {\color{gray}\small \faInfoCircle~#1}
+    \ifhints
+        {\color{gray}\small \faInfoCircle~#1}
+    \fi
 }
 
-
-\renewcommand\kariert[2][0.5cm]{% 
+\newcommand{\kariertSimple}[2][0.5cm]{% 
 	\begin{tikzpicture}[gray,step=#1]
 	\pgfmathtruncatemacro\anzahl{(\linewidth-\pgflinewidth)/#1} % maximale Anzahl Kästchen pro Zeile
 	\draw (0,0) rectangle (\anzahl*#1,#2*#1) (0,0) grid (\anzahl*#1,#2*#1);
 	\end{tikzpicture} 
 }
+
+% % Der neue Befehl, der alles steuert.
+% \newcommand{\kariertFill}[1][0.5cm]{%
+%     \par\nobreak % Wichtig für eine korrekte Messung des verbleibenden Platzes.
+%     \stepdimen=#1 % Speichert die gewünschte Kästchengröße.
+%     \directlua{fill_remaining_space_with_grid()}% Startet die Berechnung und Ausgabe.
+% }
+
+% \newdimen\stepdimen
+
+% \begin{luacode*}
+% function fill_remaining_space_with_grid()
+%     -- 1. Verbleibenden Platz in Scaled Points (sp) berechnen.
+%     local remaining_sp = tex.pagegoal - tex.pagetotal - tex.pagedepth
+    
+%     -- 2. Die Kästchengröße aus dem TeX-Register in sp auslesen.
+%     local step_sp = tex.dimen.stepdimen
+    
+%     -- 3. Anzahl der möglichen Zeilen berechnen.
+%     if step_sp > 0 then
+%         local num_rows = math.floor(remaining_sp / step_sp)
+%         num_rows=num_rows-5
+        
+%         -- 4. Den \kariertSimple-Befehl mit den korrekten Werten in den TeX-Code "drucken".
+%         if num_rows > 0 then
+%             tex.sprint(string.format([[\kariertSimple[\the\stepdimen]{%d}]], num_rows))
+%         end
+%     end
+% end
+% \end{luacode*}
+
+
+\renewcommand\kariert[2][0.5cm]{%
+  % Prüft, ob das zweite Argument #2 gleich 0 ist
+  %\ifnum#2=0
+    % if #2 == 0 then
+  %  \kariertFill[#1]%
+  %\else
+    \kariertSimple[#1]{#2}%
+  %\fi
+}
+
+
+% #1: counter
+% #2: formatting command (e.g., \arabic, \roman)
+\renewcommand{\ShowAndStepCounter}[2]{%
+    {%
+        #2{#1}%
+        \stepcounter{#1}%
+    }%
+}
+
+
 
 \renewcommand{\multi}{\item[$\circ$]}
 
