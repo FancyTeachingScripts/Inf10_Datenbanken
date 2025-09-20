@@ -1,24 +1,31 @@
 %%%%%%%%%%
 % \Aufgabe[Optional: Bearbeitungszeit in Minuten]{Titel}{Inhalt}
 %%%%%%%%%%
-\Aufgabe[10]{Unteraufgaben, Arbeitszeiten-Timer \& Skript vs. Präsentation}
+\Aufgabe{Dateianhang und nochmal Links/QR-Codes}
 {
-    Ich bin eine Aufgabe mit 10 Minuten Arbeitszeit. In der Druckversion wird sie nicht angezeigt. Nur in den Präsentationen mit aktiviertem Timer.  Dort wird die verbleibende Arbeitszeit dann unten als Balken angezeigt. Pro Minute wird eine PDF-Seite erzeugt, die automatisch nach einer Minute weiterschaltet (+ eine Seite, bevor der Timer läuft, und eine danach). Das geht aber nur mit Acrobat Reader, Foxit Reader und Okular. 
-}
+    % \AttachVlgLsg{Symbol}{Vorlagedatei}{Lösungsdatei}
+    % \AttachVlg{Symbol}{Vorlagedatei}
+    % \AttachLsg{Symbol}{Lösungsdatei}
+    \AttachVlgLsg{\faFilePdfO}{_Aufgaben/img/fontawesome.pdf}{sty/img/logo_default.pdf} 
 
-\UnterAufgabe[5]{Ich bin eine Unteraufgabe}
-{
-    Grundsätzlich werden Aufgaben und Hefteinträge immer auf einer Seite zusammengehalten. Wenn ein Hefteintrag nicht auf eine Seite passt, ist er zu lang. Daher lässt sich das hierfür nicht deaktivieren. Bei Aufgaben gibt es die Möglichkeit, eine Aufgabe zu beenden und eine neue Unteraufgabe zu beginnen. 
+    Wenn für eine Aufgabe Vorlage-Dateien (z.B. Exceltabellen oder Druckvorlagen für eine Stationenarbeit o.ä.) benötigt werden, kann man diese an das PDF anhängen/in es einbetten.
+    Genauso auch mit Lösungsdateien (dann z.B. die ausgefüllte Tabelle), die werden natürlich nur im Lösungsmodus angezeigt.
+
+    Zum Öffnen kann man das Symbol bzw. den Text Vorlage/Lsg (doppelt) anklicken. Folgende Optionen stehen zur Verfügung:
+
+    \begin{itemize}
+        \item \textbackslash{}AttachVlgLsg\{Symbol\}\{Vorlagedatei\}\{Lösungsdatei\}
+        \item \textbackslash{}AttachVlg\{Symbol\}\{Vorlagedatei\}
+        \item \textbackslash{}AttachLsg\{Symbol\}\{Lösungsdatei\}
+    \end{itemize}
+
+    Eine Übersicht über verfügbare Symbole gibt es in der angehängten Vorlagedatei und hier: \UrlAndCode{satztexnik.com/tex-archive/fonts/fontawesome/doc/fontawesome.pdf}.
+    Die Lösungsdatei enthält das FancyTeachingScripts-Logo.    
     
-    Der Titel der Unteraufgabe wird nur in der Präsentation angezeigt, möchte man nur im gedruckten Skript auch einen eigenen Text anzeigen, kann man das so tun:
-
-    \ifbeamer
-        \emphColC{Dieser Teil wird nur in der Präsentation angezeigt.}
-    \else
-        \emphColB{Dieser Teil wird nur im gedruckten Skript angezeigt.}
-    \fi
-
-    Wenn man einen Block leer lässt, wird im jeweiligen Fall nichts angezeigt. Man kann das nächste Schlüsselwort direkt hinter das vorherige schreiben.
-    \ifbeamer\else \emphColA{Sieht dann so aus.} \fi
-    Jede Unteraufgabe kann eine eigene Arbeitszeit haben. Diese hier hat 5 Minuten.
+    Achtung: Wenn die UrlAndCode-Links über zwei Zeilen laufen (so wie hier), haben manche PDF Reader Probleme, sie korrekt zu öffnen. Daher besser vermeiden.
+    
 }
+
+
+
+
