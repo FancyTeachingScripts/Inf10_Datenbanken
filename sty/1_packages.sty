@@ -42,7 +42,6 @@
 \RequirePackage[most]{tcolorbox}
 \RequirePackage{pgfopts}
 \RequirePackage{multicol}
-\RequirePackage{hyperref}
 \RequirePackage{qrcode}
 \RequirePackage{wrapfig}
 \RequirePackage{attachfile2}
@@ -52,13 +51,6 @@
 \DTMlangsetup{abbr}
 
 
-% Fix hyperref warnings by disabling problematic commands in PDF strings
-\pdfstringdefDisableCommands{%
-  \def\@ifnextchar{}%
-  \def\color#1{}%
-  \def\textbf#1{#1}%
-  \def\textit#1{#1}%
-}
 
 % Settings to prevent overfull vbox issues
 %\makeatletter
@@ -95,5 +87,16 @@
 \RequirePackage{media9}
 \RequirePackage{calc}
 \RequirePackage{intcalc}
+\RequirePackage{ulem}
 
 
+
+
+\RequirePackage{hyperref}
+% Fix hyperref warnings by disabling problematic commands in PDF strings
+\pdfstringdefDisableCommands{%
+  \def\@ifnextchar{}%
+  \def\color#1{}%
+  \def\textbf#1{#1}%
+  \def\textit#1{#1}%
+}
