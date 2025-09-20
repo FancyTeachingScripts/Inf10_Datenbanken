@@ -1,122 +1,65 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Optionen festlegen 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OPTIONEN FESTLEGEN:
+% Genau ein vorkonfiguriertes Optionspaket für Präsentationen (presentation-*)
+% oder Skript/Arbeitsblatt (print-*) aktivieren und Restliche auskommentieren. 
+%
+% FORTGESCHRITTEN - Folgende Einzeloptionen sind (fast) beliebig kombinierbar und 
+% können auch zusätzlich zu einem Optionspakete aktiviert werden:
+% presentation, loesung, avenir, letzterstand, einzelstunden, aufraeumen, timer,
+% attachements, qrcodes, hinweise, cover
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[
-   % presentation-minimal
-    % presentation-minimal-session
-    % presentation-minimal-attachments
-    % presentation-nosession
-     %presentation-noaufraeumen
-    % presentation-notimer
-    % presentation-full
-   % print-students
-     % print-solution
-   % print-students-cvoer
-     print-solution-cover
-    % print-students-minimal
-    % print-solution-minimal
+    % presentation-minimal          % nur Inhalt ohne Features
+    % presentation-minimal-session  % nur Inhalt, Stundeneinteilung
+    % presentation-nosession        % alle Features, ohne Stundeneinteilung
+    % presentation-notimer          % alle Features außer Timer, Stundeneinteilung
+    % presentation-full             % alle Features, Stundeneinteilung
+    % print-students                % QR-Codes & Dateianhang, für Schüler
+    % print-solution                % QR-Codes & Dateianhang, Muster-Lösung
+    % print-students-cover          % wie print-students + Cover-Seite mit Logo+Titel 
+     print-solution-cover          % wie print-solution + Cover-Seite mit Logo+Titel 
+    % print-students-minimal        % nur Inhalt ohne Features, für Schüler
+    % print-solution-minimal        % nur Inhalt ohne Features, Muster-Lösung
 ]{sty/MainPackage}
-
-%\SetTheme{derksen}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% HIER DIE INHALTE EINFÜGEN ODER IMPROTIEREN (empfohlen)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
- \Testart{Skript}
- \Klasse{Klasse}
- \Fach{Fach}
- \Titel{Titel/Thema}
-%\renewcommand{\Content}{Was auch immer der Inhalt ist}
-%\input{2025-2026/ExcelSkript}
-
-\renewcommand{\Content}{
-    \mysession{Stunde 1}{
-        \Hefteintrag{2}{Dummy Hefteintrag}{
-            Ich bin ein Hefteintrag über was auch immer für ein Thema.
-
-            \emphColA{Ich} \emphColB{bin} \emphColC{eine} \emphColor{red}{Aufgabe}. 
-
-            \LoesungKaroTikz{
-                \node[oval, minimum width=0.3cm, minimum height=0.3cm] (circ) {};
-                \node[left=1cm of circ] (d1) {};
-                \node[above right = 0.5cm and 1cm of circ] (d2) {};
-                \node[below right = 0.5cm and 1cm of circ] (d3) {};
-    
-                \draw[arrow] (d1)--(circ);
-                \draw[arrow] (circ)--(d2);
-                \draw[arrow] (circ)--(d3);
-            }{5}
-        }
-        \Aufgabe{Dummy Aufgabe}{
-            Und ich bin eine Aufgabe.
-
-            \kariert{0}
-        }
-        
-        \Hefteintrag{2}{Dummy Hefteintrag}{
-            Ich bin ein Hefteintrag über was auch immer für ein Thema.
-
-            \LoesungKaroTikz{
-                \node[oval, minimum width=0.3cm, minimum height=0.3cm] (circ) {};
-                \node[left=1cm of circ] (d1) {};
-                \node[above right = 0.5cm and 1cm of circ] (d2) {};
-                \node[below right = 0.5cm and 1cm of circ] (d3) {};
-    
-                \draw[arrow] (d1)--(circ);
-                \draw[arrow] (circ)--(d2);
-                \draw[arrow] (circ)--(d3);
-            }{5}}
-        \Hefteintrag{2}{Another Dummy Hefteintrag}{
-            Ich bin ein Hefteintrag über was auch immer für ein Thema.
-            
-            \kariert{0}
-        }
-        }
-    \mysession{Stunde 2}{
-        \Aufgabe[3]{Another Dummy Aufgabe}{
-            \begin{tikzpicture}
-                \begin{class}{Flughafen}{0,0}
-        \attribute{int id}
-        \attribute{String land}
-        \attribute{String ort}
-        \attribute{String name}
-    \end{class}
-    
-    \begin{class}{Flug}{5,4}
-        \attribute{int id}
-        \attribute{DATUM datum}
-        \attribute{int flugnr}
-        \attribute{String flugzeug}
-        \attribute{...}
-    \end{class}
-    
-    \begin{class}{Fluggesellschaft}{12,4}
-        \attribute{String id}
-        \attribute{String name}
-    \end{class}
-
-    \uniAssociationAngle{Flug.west}{180}{above}{n}{startflughafen}{1}{left}{90}{Flughafen.north}
-    \uniAssociationAngle{Flug.south}{270}{right}{n}{zielflughafen}{1}{below}{0}{Flughafen.east}
-    
-    \uniAssociationAngle{Flug.east}{320}{below}{n}{zielflughafen}{1}{below}{270}{Fluggesellschaft.south}
-            \end{tikzpicture}
-        }
-        \UnterAufgabe{Dummy Unter Aufgabe}{
-            Und ich bin eine Unteraufgabe.
-        }
-    }
-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THEME (LOGO, FARBEN) festlegen. 
+% Verfügbar: mtg, derksen, default (automatisch aktiv, auch wenn Zeile fehlt)
+\SetTheme{default}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HIER DIE INHALTE EINFÜGEN ODER IMPROTIEREN (wie in der Demo; empfohlen) mit
+% \input{Ordner/Dateiname}      % Dateiname ohne .tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{_Skripte/DemoSkript}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Hier nichts ändern !
-%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% !!! IMMER MIT LUALATEX KOMPILIEREN !!!
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           !!! IMMER MIT LUALATEX 2024 KOMPILIEREN !!!
+% (links oben über Menu Compiler und Tex Live Version einstellen )
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
