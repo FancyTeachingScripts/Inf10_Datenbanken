@@ -1,4 +1,4 @@
-name: Compile normal and plain PDF
+name: Compile Demo PDFs
 
 # Controls when the workflow will run
 on:
@@ -29,6 +29,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      # Install Comic Sans MS font
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fontconfig
+          wget -O comic.ttf https://github.com/shannpersand/comic-shanns/raw/master/v2/comic%20shanns%202.ttf
+          sudo mkdir -p /usr/share/fonts/truetype/comic
+          sudo cp comic.ttf /usr/share/fonts/truetype/comic/
+          sudo fc-cache -fv
 
       # Compile LaTeX document to PDF using XeLaTeX
       - name: Compile LaTeX document
@@ -63,6 +73,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      # Install Comic Sans MS font
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fontconfig
+          wget -O comic.ttf https://github.com/shannpersand/comic-shanns/raw/master/v2/comic%20shanns%202.ttf
+          sudo mkdir -p /usr/share/fonts/truetype/comic
+          sudo cp comic.ttf /usr/share/fonts/truetype/comic/
+          sudo fc-cache -fv
 
       # Get filename without extension
       - name: Get filename without extension
