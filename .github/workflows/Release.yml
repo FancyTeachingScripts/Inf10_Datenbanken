@@ -26,6 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: prepare
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       # Compile LaTeX document to PDF using XeLaTeX
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
