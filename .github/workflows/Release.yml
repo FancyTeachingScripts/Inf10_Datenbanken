@@ -21,7 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-  # Job to compile the LaTeX document
+  # Job to compile the main LaTeX document
   compile:
     runs-on: ubuntu-latest
     needs: prepare
@@ -43,6 +43,48 @@ jobs:
         with:
           name: main-pdf
           path: main.pdf
+          retention-days: 1
+          compression-level: 0
+
+  # Job to compile all Demo_PDFs LaTeX files in parallel
+  compile-demo-pdfs:
+    runs-on: ubuntu-latest
+    needs: prepare
+    strategy:
+      matrix:
+        tex_file: 
+          - presentation-full.tex
+          - presentation-minimal-session.tex
+          - presentation-minimal.tex
+          - print-solution-cover.tex
+          - print-students-cover.tex
+          - print-students.tex
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Get filename without extension
+      - name: Get filename without extension
+        id: get-filename
+        run: |
+          filename="${{ matrix.tex_file }}"
+          basename="${filename%.tex}"
+          echo "basename=$basename" >> $GITHUB_OUTPUT
+
+      # Compile LaTeX document to PDF using LuaLaTeX
+      - name: Compile ${{ matrix.tex_file }}
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: Demo_PDFs/${{ matrix.tex_file }}
+          compiler: lualatex
+
+      # Upload compiled PDF with the same name as the tex file
+      - name: Upload ${{ steps.get-filename.outputs.basename }} PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.get-filename.outputs.basename }}-pdf
+          path: Demo_PDFs/${{ steps.get-filename.outputs.basename }}.pdf
           retention-days: 1
           compression-level: 0
 
