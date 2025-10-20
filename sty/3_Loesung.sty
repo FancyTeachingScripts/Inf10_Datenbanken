@@ -7,6 +7,8 @@
 \newcounter{lsgcount}
 \setcounter{lsgcount}{0}
 
+\newfontfamily{\comicsansfont}{sty/fonts/ComicSans.ttf}
+
 \providecommand{\LSG}[1]{
     \ifbeamer
         \stepcounter{lsgcount}
@@ -15,7 +17,7 @@
                 \color{\LFarbe}
                 \renewcommand{\umldrawcolor}{\LFarbe}
                 \renewcommand{\umltextcolor}{\LFarbe}
-                \fontspec{Comic Sans MS} 
+                \comicsansfont
                 #1
                 \renewcommand{\umldrawcolor}{\TFarbe}
                 \renewcommand{\umltextcolor}{\TFarbe}
@@ -25,7 +27,7 @@
             \color{\LFarbe}
             \renewcommand{\umldrawcolor}{\LFarbe}
             \renewcommand{\umltextcolor}{\LFarbe}
-            \fontspec{Comic Sans MS} 
+            \comicsansfont
             #1
             \renewcommand{\umldrawcolor}{\TFarbe}
             \renewcommand{\umltextcolor}{\TFarbe}

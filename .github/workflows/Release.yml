@@ -1,21 +1,31 @@
-name: Compile Demo PDFs
+name: Compile PDFs
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push to any branch
-  push:
   # Triggers the workflow when a release is created
-  #release:
-  #  types: [created]
+  release:
+    types: [created]
+
+  # Triggers the workflow on pull requests
+  #pull_request:
+  #  branches: [ master, main ]
+
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# Set permissions for GITHUB_TOKEN
+permissions:
+  contents: write
+  pull-requests: read
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # Job to prepare the LaTeX files (convert SVG and modify LaTeX)
+  # Job to prepare the LaTeX files
   prepare:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
