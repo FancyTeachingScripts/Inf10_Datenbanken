@@ -76,8 +76,8 @@
 \newcommand{\AttachVlgBeamer}[2]{
     \begin{tikzpicture}[remember picture,overlay]
         \node[anchor=north east] 
-        at ([xshift=-2cm, yshift=1.2cm]current page.north east |- sectionstart) 
-        {\textattachfile[color=\TFarbe]{#2}{Vorlage \LARGE #1}};
+        at ([xshift=-2cm, yshift=0.9cm]current page.north east |- sectionstart) 
+        {\textattachfile[color=\TFarbe]{#2}{Vorlage \large #1}};
     \end{tikzpicture}%
 }
 
@@ -94,8 +94,8 @@
 \newcommand{\AttachLsgBeamer}[2]{
     \begin{tikzpicture}[remember picture,overlay]
         \node[anchor=north east] 
-        at ([xshift=-2cm, yshift=1.2cm]current page.north east |- sectionstart) 
-        {\textattachfile[color=\LFarbe]{#2}{Lsg \LARGE #1}};
+        at ([xshift=-2cm, yshift=0.9cm]current page.north east |- sectionstart) 
+        {\textattachfile[color=\LFarbe]{#2}{Lsg \large #1}};
     \end{tikzpicture}%
 }
 
@@ -113,11 +113,11 @@
 }
 \newcommand{\AttachVlgLsgBeamer}[3]{
     \begin{tikzpicture}[remember picture,overlay]
-        \node[anchor=north east] at ([xshift=-2cm, yshift=1.2cm]current page.north east |- sectionstart) 
-        {\textattachfile[color=\TFarbe]{#2}{Vorlage \LARGE #1}};
+        \node[anchor=north east] at ([xshift=-2cm, yshift=0.9cm]current page.north east |- sectionstart) 
+        {\textattachfile[color=\TFarbe]{#2}{Vorlage \large #1}};
         \ifloesung
-            \node[anchor=north east] at ([xshift=-4.25cm, yshift=1.2cm]current page.north east |- sectionstart) 
-            {\textattachfile[color=\LFarbe]{#3}{Lsg \LARGE #1} };
+            \node[anchor=north east] at ([xshift=-4.25cm, yshift=0.9cm]current page.north east |- sectionstart) 
+            {\textattachfile[color=\LFarbe]{#3}{Lsg \large #1} };
         \fi
     \end{tikzpicture}%
 }
@@ -243,14 +243,17 @@
         \begin{tcolorbox}[
             breakable,
             enhanced,
-            title=#2,
+            title=~~#2,
             opacityframe=1,
             fontupper=\color{\TFarbe},
             opacityback=1,
             colback=colA!10!black,
             colframe=colA,
+            boxsep=0pt,
+            left=3pt,
+            right=3pt,
             fonttitle=\bfseries\Large,
-            overlay={\node[anchor=north east,outer sep=-1pt]  at (frame.north east) {\includegraphics[height=15pt]{sty/img/pen_white.pdf}};}
+            overlay={\node[anchor=north east,outer sep=-1pt]  at (frame.north east) {\includegraphics[height=13pt]{sty/img/pen_white.pdf}};}
         ]
         \marksectionstart
             #3
@@ -325,14 +328,17 @@
         \begin{tcolorbox}[%
             breakable,
             enhanced,
-            title= \strut {\color{colB}#1},
+            title= \strut {\color{colB}~~#1},
             opacityframe=1,
             fontupper=\color{\TFarbe},
             opacityback=1,
             colback=colB!7!black,
             colframe=lightgray,
+            boxsep=0pt,
+            left=3pt,
+            right=3pt,
             fonttitle=\bfseries\Large,
-            overlay={\node[anchor=north east,outer sep=-1pt] at (frame.north east) {\includegraphics[height=22pt]{sty/img/finger_\theme_colB.pdf}};}
+            overlay={\node[anchor=north east,outer sep=-1pt] at (frame.north east) {\includegraphics[height=17pt]{sty/img/finger_\theme_colB.pdf}};}
         ]
           \marksectionstart
           #2
@@ -364,14 +370,17 @@
         \begin{tcolorbox}[%
             breakable,
             enhanced,
-            title= \strut {\color{colB}#1},
+            title= \strut {\color{colB}~~#1},
             opacityframe=1,
             fontupper=\color{\TFarbe},
             opacityback=1,
+            boxsep=0pt,
+            left=3pt,
+            right=3pt,
             colback=colB!7!black,
             colframe=lightgray,
             fonttitle=\bfseries\Large,
-            overlay={\node[anchor=north east,outer sep=-1pt] at (frame.north east) {\includegraphics[height=22pt]{sty/img/finger_\theme_colB.pdf}};}
+            overlay={\node[anchor=north east,outer sep=-1pt] at (frame.north east) {\includegraphics[height=17pt]{sty/img/finger_\theme_colB.pdf}};}
         ]
           \marksectionstart
           #2
