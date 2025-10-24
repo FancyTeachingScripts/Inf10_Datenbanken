@@ -257,6 +257,7 @@
 
 \newcommand{\summaryzoom}[2]{
     \begin{frame}[plain]
+            \vfill
             \centering
             \ifthenelse{\boolean{#2}}{
                 \ifthenelse{\value{lastsecstart}=\value{sectionstart}}{}{
@@ -375,6 +376,8 @@
                     }
                 }
             }
+            
+        \vfill
     \end{frame}
 }
 
