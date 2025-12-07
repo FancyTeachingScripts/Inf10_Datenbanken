@@ -1,0 +1,54 @@
+\Hefteintrag{1}{m:n Beispiel}{
+\ifbeamer\else\vspace{0.3cm}\fi
+\centering
+\begin{minipage}[t]{0.25\textwidth}
+    \centering
+    \emph{Lehrer}\\\vspace{0.1cm}
+    \begin{tabular}{c|c}
+        id & kuerzel \\\hline
+        1 & Her \\
+        2 & Ext \\
+    \end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \emph{lehrer\_an\_schule}\\\vspace{0.1cm}
+    \begin{tabular}{c|c}
+        lehrer & schule \\\hline
+        1 & MTG \\
+        2 & Dante \\
+        2 & MTG \\
+    \end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.25\textwidth}
+    \centering
+    \emph{Schule}\\\vspace{0.1cm}
+    \begin{tabular}{c|c}
+        id & ort \\\hline
+        MTG & Haidh.\\
+        Dante & Sendl.\\
+    \end{tabular}\
+\end{minipage}
+
+\vspace{0.2cm}
+\emphColB{Ergebnistabelle des Kreuzprodukts:}\\\vspace{0.1cm}
+\begin{tabular}{c|c|c|c|c|c}
+    id & kuerzel & lehrer & schule & id & ort \\\hline
+    \emphColC{1} & Her & \emphColC{1} & \emphColC{MTG} & \emphColC{MTG} & Haidh. \\
+    \emphColor{red}{2} & Ext & \emphColor{red}{1} & \emphColC{MTG} & \emphColC{MTG} & Haidh. \\
+    ... & ... & ... & ... & ... & ... \\
+\end{tabular}\\
+insgesamt 2 x 3 x 2 = 12 Zeilen
+
+
+
+\vspace{0.5cm}
+\emph{2 Spaltenpaare müssen zusammenpassen! $\Rightarrow$ Doppel-Join}\\\vspace{0.1cm}
+
+    \emphColB{SELECT * \\FROM Lehrer, lehrer\_an\_schule, Schule}\\
+    \emphColC{WHERE Lehrer.id = lehrer\_an\_schule.lehrer} \\
+    \emphColC{AND lehrer\_an\_schule.schule = Schule.id}
+
+}
