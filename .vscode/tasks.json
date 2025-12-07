@@ -37,7 +37,22 @@
                 "focus": false,
                 "panel": "shared"
             },
-            "problemMatcher": []
+            "problemMatcher": [],
+            "windows": {
+                "command": "powershell",
+                "args": [
+                    "-ExecutionPolicy",
+                    "Bypass",
+                    "-File",
+                    ".vscode/build-parallel.ps1"
+                ]
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    ".vscode/build-parallel.sh"
+                ]
+            }
         }
     ]
 }
