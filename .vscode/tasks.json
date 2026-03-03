@@ -4,11 +4,6 @@
         {
             "label": "compile-single-tex",
             "type": "shell",
-            "command": "powershell",
-            "args": [
-                "-Command",
-                "lualatex -interaction=nonstopmode main.tex; lualatex -interaction=nonstopmode main.tex"
-            ],
             "group": "build",
             "presentation": {
                 "echo": true,
@@ -16,16 +11,25 @@
                 "focus": false,
                 "panel": "shared"
             },
-            "problemMatcher": []
+            "problemMatcher": [],
+            "windows": {
+                "command": "powershell",
+                "args": [
+                    "-Command",
+                    "lualatex -interaction=nonstopmode main.tex; lualatex -interaction=nonstopmode main.tex"
+                ]
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "-c",
+                    "lualatex -interaction=nonstopmode main.tex; lualatex -interaction=nonstopmode main.tex"
+                ]
+            }
         },
         {
             "label": "build-all-main-tex",
             "type": "shell",
-            "command": "powershell",
-            "args": [
-                "-ExecutionPolicy", "Bypass",
-                "-File", ".vscode/build-parallel.ps1"
-            ],
             "group": "build",
             "presentation": {
                 "echo": true,
@@ -33,7 +37,22 @@
                 "focus": false,
                 "panel": "shared"
             },
-            "problemMatcher": []
+            "problemMatcher": [],
+            "windows": {
+                "command": "powershell",
+                "args": [
+                    "-ExecutionPolicy",
+                    "Bypass",
+                    "-File",
+                    ".vscode/build-parallel.ps1"
+                ]
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    ".vscode/build-parallel.sh"
+                ]
+            }
         }
     ]
 }

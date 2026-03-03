@@ -1,109 +1,170 @@
-
-
+%   #1: Start Anforderungsanalyse
+%   #2: Abgabe 'Überschrift'
+%   #3: Ende Abstimmung
+%   #4: Abgabe Lastenheft 
+%   #5: Abgabe Pflichtenheft
+%   #6: Abgabe Datenbank
+%   #7: Abgabe Testprotokoll
+%   #8: Abgabe Dokumentation und Reflexion
+%   #9: Uhrzeit
 \newcommand{\dbprojekt}[9]
 {
-\Datum{#1 bis #9}
+\Datum{#1 bis #8}
 
-\section{Rahmenbedingungen}
+\Aufgabe{Rahmenbedingungen}{
 \begin{itemize}
-    \item Bearbeitung in Teams bestehend aus 4 Personen
-    \item Melden der Gruppen bis spätestens vor der ersten Deadline bei eurer Lehrkraft.
-    \item Entwicklung nach dem Wasserfall-Modell:  \url{bycs.link/inf10-wasserfall} oder \\\url{de.wikipedia.org/wiki/Wasserfallmodell}
-    \item Als Datenbanksoftware wird die Online-Software SQLution verwendet (kostenlos verfügbar unter: \UrlAndCode{sqlution.de}, Accounts bekommt ihr von eurer Lehrkraft).
-    \item Zusätzlich zur Arbeit im Informatik-Unterricht wird auch \emphColB{Arbeit zuhause} notwendig sein. \emphColB{Arbeitsteilung mit ähnlicher Menge für jede:n ist erwünscht!}
-    \item Empfehlung: Doku-Dateien auf BYCS-Drive speichern und dort bearbeiten.
-    \item Alle Dokumenten-Abgaben im PDF-Format; Projektabgabe als ZIP-Datei des ganzen Projekts (Download in SQLution).
+    \item Ausarbeitung und abschließender Test einer Projektidee im 2er-Team
+    \item Erstellung von Umsetzungsplan und Datenbank in 4er-Teams (bestehend aus zwei 2er-Teams)
+    \item Melden der Gruppen bei der Lehrkraft vor der ersten Abgabe, sonst ist keine Abgabe möglich!
+    \item Entwicklung nach dem Wasserfall-Modell:  \UrlAndCode{bycs.link/inf10-wasserfall} oder \\\UrlAndCode{de.wikipedia.org/wiki/Wasserfallmodell}
+    \item Als Datenbanksoftware wird die kostenlose Online-Software \emphColB{SQLution} verwendet (auf jedem Gerät verfügbar unter: \UrlAndCode{sqlution.de}, Accounts bekommt ihr von eurer Lehrkraft).
+    \item Zusätzlich zur Arbeit im Informatik-Unterricht wird auch \emphColB{Arbeit zuhause} notwendig sein. \emphColB{Arbeitsteilung mit ähnlichem Aufwand für jede:n ist erwünscht!}
+    \item Alle \emphColB{Abgaben auf \ValOrInputField{Artemis}{2cm}{colB}} im PDF-Format (Dokumente) bzw. als ZIP-Datei (Datenbank; Download in SQLution). Bei kurzfristigen technischen Problemen mit der Abgabe bitte per BYCS-Drive freigeben.
 \end{itemize}
+}
 
-\section{Inhaltliche Anforderungen}
+\Aufgabe{Inhaltliche Anforderungen}{
 \begin{itemize}
-    \item Datenbank mit mindestens 4 inhaltlichen Tabellen (Beziehungstabellen zusätzlich)
-    \item alle 3 Kardinalitäts-Typen
-    \item Mindestens: Erfüllung der 1. und 2. Normalform
-    \item Bonus-Punkte: Erfüllung der 3. Normalform
-    \item Auslesen von Daten durch den Nutzer (zur Erfüllung der Anforderungen) ausschließlich über SQL-Abfragen.
+    \item Mindestens 4 inhaltlichen Tabellen (Beziehungstabellen zusätzlich); uni- und bidirektionale Beziehungen Normalform; Bonus-Punkte: Erfüllung der 3. Normalform
+    \item Auslesen von Daten durch den Nutzer (zur Erfüllung der Anforderungen) ausschließlich über SQL-Abfragen (mit Eingabefeldern oder Dropdown-Menüs).
 \end{itemize}
+}
 
-\section{Grober Zeitplan}
 
-\begin{enumerate}
-    \item \textbf{Woche ab #1:} Anforderungsanalyse und Einarbeitung in das Wasserfallmodell
-    \item \textbf{Woche ab #2:} Finalisierung Anforderungsanalyse und Einarbeitung in Datenmodellierung\\
-       $\rightarrow$  \emphColB{Abgabe: Lastenheft bis #2, 23:59 Uhr}
-    \item \textbf{Woche ab #3:} Datenbankentwurf
-       $\rightarrow$  \emphColB{Abgabe: Pflichtenheft bis #3, 23:59 Uhr}
-    \item \textbf{Woche ab #4:} Umsetzung der Datenbank
-    \item \textbf{Woche ab #5:} Umsetzung der Datenbank\\
-       $\rightarrow$  \emphColB{Abgabe: Datenbank bis #6, #7}
-    \item \textbf{Woche ab #6:} Tests + Dokumentation
-    \item \textbf{Woche ab #8:} Abschluss der Dokumentation und Reflexion\\
-       $\rightarrow$  \emphColB{Abgabe: Dokumentation und Reflexion bis #9, 23:59 Uhr}
-\end{enumerate}
+\Aufgabe{Ablauf}{
 
-\section{Anforderung einzelner Phasen}
+Übersicht über einzelne Projektphasen mit \emphColA{abzugebenden Produkten} und \emphColB{Abgabedatum} (jeweils spätestens um #9).
+Bitte Details zu Abgaben und Inhalten über die Abgaben hinaus in Abschnitt \ref{sec:details} beachten!
 
-\subsection{Anforderungsanalyse}
+\vspace{0.1cm}
+
+\begin{tikzpicture}
+    % --- Nodes ---
+    \node[box, text width=2.5cm] (a) {Projektidee (\emphColA{'Projektitel'}) \emphColB{#2}};
+    
+    % Fixed positioning from previous turn
+    \node[box, text width=3cm, below right=0.6cm and -0.6cm of a] (b) {\emphColA{Abstimmung 1./2./3. Wahl} anhand 'Projekttitel' \emphColB{#3}};
+
+    \node[below=0.5cm of b] (x) {};
+    
+    \node[box, text width=2.5cm, right=0.7cm of a] (c) {Anforderungsanalyse mit \emphColA{Lastenheft} \emphColB{#4}};
+    \node[box, text width=2.5cm, right=0.7cm of b] (d) {Datenbankentwurf mit \emphColA{Pflichtenheft} \emphColB{#5}};
+    \node[box, text width=2.5cm, right=0.7cm of d] (e) {Umsetzung \emphColA{Datenbank} \emphColB{#6}};
+    \node[box, text width=2.5cm, right=0.7cm of e] (g) {Test eigene Datenbank (\emphColA{Teil der Doku})};
+    
+    % Adjusted positioning slightly to align with top row
+    \node[box, text width=2.5cm, right=6.8cm of c] (f) {Test fremde Datenbank (\emphColA{Testprotokoll}) \emphColB{#7}};
+    \node[text width=3.1cm, right=0.1cm of f] (i) {Datenbank zum eigenen Lastenheft oder zufällig zugewiesen};
+    
+    \node[box, text width=2.5cm, right=0.7cm of g] (h) {\emphColA{Dokumentation} \& \emphColA{Reflexion} \emphColB{#8}};
+    
+    % --- Edges ---
+    \draw[arrow] (a) -- (b);
+    \draw[arrow] (a) -- (c);
+    \draw[arrow] (b) -- (d);
+    \draw[arrow] (d) -- (e);
+    \draw[arrow,dotted] (e) -- (f);
+    \draw[arrow] (e) -- (g);
+    \draw[arrow] (g) -- (h);
+    \draw[arrow, dotted] (c) -- (f);
+    
+    % Curved arrow fix from previous turn
+    \draw[arrow, dotted] (d) to[bend right] (g);
+    \draw[arrow, dotted] (g) to[bend right] (h);
+
+    % --- Background Boxes (The New Part) ---
+    \begin{scope}[on background layer]
+        
+        % Upper Box (Light Blue)
+        % fit includes nodes a, c, f and i. inner sep adds space for the label.
+        \node[fit=(a) (c) (f) (i), fill=cyan!10, inner sep=0.1cm, rounded corners] (upperbox) {};
+        % Label placed at the north anchor of the box, anchored below it (inside)
+        \node[below, font=\bfseries\large, color=blue!50!black] at (upperbox.north) {2er Teams};
+
+        % Lower Box (Light Green)
+        % fit includes nodes b, d, e, g, h
+        \node[fit=(b) (d) (e) (g) (h) (x), fill=green!10, inner sep=0.1cm, rounded corners] (lowerbox) {};
+        % Label placed at the south anchor of the box, anchored above it (inside)
+        \node[above, font=\bfseries\large, color=green!50!black] at (lowerbox.south) {4er Teams};
+        
+    \end{scope}
+
+\end{tikzpicture}
+}
+
+\vspace{-0.5cm}
+
+\Aufgabe{Anforderung einzelner Phasen}{
+\label{sec:details}
+}
+
+\UnterAufgabe{Anforderungsanalyse (2er-Team)}{
+\subsubsection*{Anforderungsanalyse (2er-Team)}
 \begin{itemize}
-    \item Einarbeitung in das Wasserfallmodell 
-    \item Entwurf der Projektidee
-    \item Allgemeine Beschreibung des Produkts und Einsatz (\emphColB{Lastenheft})
-    \item 5 funktionale und 2 nicht-funktionale Anforderungen (\emphColB{Lastenheft})
-    \item Empfehlung: Formulierung einzelner TODOs auf einem Project Board.
+    \item Einarbeitung in das Wasserfallmodell (kann in Quizzes abgefragt werden).
+    \item Zunächst Entwurf des Projekttitels (für Abstimmung, was 1./2./3. Wahl in der Umsetzung im 4er-Team ist), dann Ausarbeitung detaillierter Anforderungen.
+    \item Allgemeine Beschreibung des Produkts und Einsatz (\emphColA{Lastenheft})
+    \item mindestens 6 funktionale und 1 nicht-funktionale Anforderung (nummeriert im \emphColA{Lastenheft}):\\
+    \UrlAndCode{de.wikipedia.org/wiki/Anforderung_(Informatik)}
 \end{itemize}
+}
 
-\subsection{Datenbankentwurf}
+\UnterAufgabe{Datenbankentwurf (4er-Team)}{
+\subsubsection*{Datenbankentwurf (4er-Team)}
 \begin{itemize}
-    \item Einarbeitung in Datenmodellierung (Redundanz, Konsistenz, Anomalien)
-    \item Entwurf des Datenbankschemas als Klassendiagramm in SQLution.
-    $\rightarrow$ \emphColA{Klassendiagramm} (\emphColB{Pflichtenheft})
+    \item Einarbeitung in Datenmodellierung (Redundanz, Konsistenz, Anomalien): \UrlAndCode{bycs.link/sql_anomalien} (Quiz!)
+    \item Basierend auf eurer Abstimmung für ein Thema wird euch ein Lastenheft (keines, das jemand aus eurer Gruppe erstellt hat) zugewiesen, mit dem ihr ab sofort weiterarbeitet.
+    \item Entwurf eines Datenbankschemas als Klassendiagramm in SQLution.
+    $\rightarrow$ Klassendiagramm (\emphColA{Pflichtenheft})
     \item Entwurf User Interface (= gewünschte Eingabefelder und Dropdown Menüs + Aufbau Ausgabetabellen der SQL-Abfragen)
-    $\rightarrow$ Festhalten mittels Skizzen/Beschreibung (\emphColB{Pflichtenheft})
-    \item Erläuterung, welche Maßnahmen getroffen wurde, um Konsistenz sicherzustellen / Anomalien zu vermeiden (\emphColB{Pflichtenheft}).
-    \item Wo möglich: Zuordnung der Inhalte zu den Anforderungen aus dem Lastenheft (\emphColB{Pflichtenheft}).
+    $\rightarrow$ Festhalten mittels Skizzen/Beschreibung (\emphColA{Pflichtenheft})
+    \item Beschreibung von Maßnahmen, um Konsistenz sicherzustellen / Anomalien zu vermeiden (\emphColA{Pflichtenheft}).
+    \item Wo möglich: Zuordnung der Inhalte zu den Anforderungen aus dem Lastenheft (\emphColA{Pflichtenheft}).
 \end{itemize}
+}
 
-\subsection{Umsetzung}
+\UnterAufgabe{Umsetzung (4er-Team)}{
+\subsubsection*{Umsetzung (4er-Team)}
 \begin{itemize}
-    \item Umsetzung des Plans aus dem Pflichtenheft
-    \item Haltet euch möglichst genau an euer Pflichtenheft. Änderungen sollen nur notfalls vorgenommen werden und müssen begründet werden.
-    \item Bearbeitung möglichst arbeitsteilig.
+    \item Haltet euch möglichst genau ans Pflichtenheft; falls ihr etwas ändern müsst, listet es im Bericht auf.
+    \item Bearbeitung möglichst arbeitsteilig (Vorsicht: in SQLution nicht gleichzeitig an der gleichen SQL-Abfrage arbeiten!).
     \item \emphColA{Achtung: } Nach einer Änderung des Datenbankmodells muss eine neue Datenbank generiert und alle Datensätze neu eingetragen werden! Also erst gutes Daten-Design überlegen, dann umsetzen.
 \end{itemize}
+}
 
-\subsection{Tests}
+\UnterAufgabe{Tests (2er- und 4er-Team)}{
+\subsubsection*{Tests (2er- und 4er-Team)}
 \begin{itemize}
-    \item Kontinuierliches Testen während der Umsetzung.
-    \item Überprüfung des Endprodukts zuerst anhand des \emphColA{Pflichtenhefts} anschließend anhand des \emphColA{Lastenhefts}
-    \item Gesamtbeurteilung, ob das Projekt erfolgreich umgesetzt wurde.
-    \item Festhalten aller Ergebnisse in einem Test-Protokoll (eine Auflistung, welche Anforderung wann von wem geprüft wurde und ob die Überprüfung erfolgreich war und, wenn nicht, wieso).
+    \item \emph{4er-Team:} Überprüfung eurer Datenbank anhand des Pflichtenhefts (dieses Testprotokoll ist \emphColA{Teil eurer Doku}).
+    \item \emph{2er-Team:} Überprüfung einer fremden Datenbank anhand des Lastenhefts (falls eine Gruppe euer Lastenheft umgesetzt hat, bekommt ihr dieses, ansonst ein zufälliges zugewiesen) (\emphColA{separates Testprotokoll})
+    \item Gesamtbeurteilung, ob das Projekt erfolgreich umgesetzt wurde (\emphColA{Testprotokoll}).
+    \item Festhalten aller Ergebnisse in einem Testprotokoll (eine Auflistung, welche Anforderung wann von wem geprüft wurde und ob die Überprüfung erfolgreich war und, wenn nicht, wieso).
 \end{itemize}
+}
 
-\subsection{Dokumentation}
+\UnterAufgabe{Dokumentation (4er-Team)}{
+\subsubsection*{Dokumentation (4er-Team)}
 \begin{itemize}
     \item Inhalt: \emphColB{Lastenheft, Pflichtenheft, Testprotokoll, Bedienungsanleitung, Finales Datenbankschema} (mit allen vorgenommenen Änderungen), \emphColB{alle SQL-Abfragen} (SQL-Code)
     \item Optisch ansprechendes Dokument!
 \end{itemize}
+}
 
-\subsection{Bericht/Reflexion über...}
+\UnterAufgabe{Bericht/Reflexion über... (4er-Team)}{
+\subsubsection*{Bericht/Reflexion über... (4er-Team)}
 \begin{itemize}
-    \item ...die einzelnen Projektphasen und aufgetretene Schwierigkeiten.
-    \item ...während der Umsetzung erfolgte Änderungen gegenüber Pflichtenheft.
-    \item ...was ihr wieder so/anders machen würdet.
+    \item ...die einzelnen Projektphasen, aufgetretene Schwierigkeiten und was ihr wieder so/anders machen würdet.
+    \item ...während der Umsetzung erfolgte Änderungen gegenüber dem Pflichtenheft.
     \item ...die erfolgte Arbeitsteilung.
 \end{itemize}
+}
 
-\section{Benotung}
-\subsection{Note 1: Produkt und Arbeitsphase}
-\begin{itemize}
-    \item Funktionalität der Datenbank, Erfüllung der Spezifikation (Anforderungen)
-    \item Umsetzung des Wasserfallmodells
-    \item Individuelle Beobachtung während Arbeitsphase
-\end{itemize}
+\Aufgabe{Benotung}{
+\subsubsection*{Note 1: Anforderungsanalyse, Entwurf und Arbeitsphase}
+u.a. Umsetzung der Anforderungen, Qualität von Lasten- und Pflichtenheft, Teamwork (gleichmäßige Arbeitsverteilung!), Engagement, Einhaltung des Wasserfallmodells, Konsistenz, ...
 
-\subsection{Note 2: Dokumentation und Reflexion}
-\begin{itemize}
-    \item Verständlichkeit, Sprache
-    \item Übereinstimmung mit dem Produkt
-    \item differenzierte Reflexion der eigenen Arbeit
-\end{itemize}
+
+\subsubsection*{Note 2: Endprodukt, Dokumentation, Reflexion und Arbeitsphase}
+u.a. Umsetzung der Anforderungen, Qualität des Softwareprodukts, Qualität von Test und Dokumentation,  differenzierte Reflexion der eigenen Arbeit, Konsistenz, Teamwork (gleichmäßige Arbeitsverteilung!), Engagement, ...
+}
 }

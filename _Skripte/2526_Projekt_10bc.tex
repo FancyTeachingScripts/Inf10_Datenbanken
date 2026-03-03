@@ -1,0 +1,37 @@
+\Testart{Projektarbeit}
+
+
+% #1: Lsg Val
+% #2: width
+% #3 input text color
+\newcommand{\ValOrInputField}[3]{
+\ifloesung #1 \else \TextField[width=#2,bordercolor={},backgroundcolor={}, borderwidth=0pt, color=#3, align=1]{} \fi
+}
+
+
+
+\Klasse{10\ValOrInputField{b/c}{0.5cm}{colB}\\}
+
+\Fach{Informatik}
+\Titel{Datenbanken}
+
+\renewcommand{\Content}{
+    
+    \mysession{Stunde 1}{
+        \input{_Aufgaben/P01_Datenbanken}
+        \dbprojekt %
+        {\ValOrInputField{12.12.2025}{2cm}{colB}} %   #1: Start Anforderungsanalyse
+        {\ValOrInputField{16.12.2025}{2cm}{colB}} %   #2: Abgabe 'Überschrift'
+        {\ValOrInputField{17.12.2025}{2cm}{colB}} %   #3: Ende Abstimmung
+        {\ValOrInputField{19.12.2025}{2cm}{colB}} %   #4: Abgabe Lastenheft 
+        {\ValOrInputField{16.01.2026}{2cm}{colB}} %   #5: Abgabe Pflichtenheft
+        {\ValOrInputField{06.02.2026}{2cm}{colB}} %   #6: Abgabe Datenbank
+        {\ValOrInputField{13.02.2026}{2cm}{colB}} %   #7: Abgabe Testprotokoll
+        {\ValOrInputField{27.02.2026}{2cm}{colB}} %   #8: Abgabe Dokumentation und Reflexion
+        {\ValOrInputField{23:59 Uhr}{2cm}{colB}}  %   #9: Uhrzeit
+        %{\ValOrInputField{Artemis}{2cm}{colB}}  %   #10: Abgabe-Plattform
+    }
+}
+
+
+

@@ -1,18 +1,18 @@
 
-main.atfi
+*.atfi
 
-main.aux
+*.aux
 
-main.log
+*.log
 
-main.nav
+*.nav
 
-main.out
+*.out
 
-main.snm
+*.snm
 
-main.toc
+*.toc
 
-main.pdf
+*.pdf
 
 main/pdfs/
