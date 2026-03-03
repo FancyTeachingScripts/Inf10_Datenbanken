@@ -106,6 +106,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           pattern: "*"
+          exclude-pattern: "prepared-latex-files"
           merge-multiple: true
 
       # Upload all PDFs together
@@ -209,6 +210,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           pattern: "*"
+          exclude-pattern: "prepared-latex-files"
           merge-multiple: true
 
       # Checkout the website repository
@@ -222,8 +224,8 @@ jobs:
       # Copy PDFs to the website repository
       - name: Copy PDFs to website
         run: |
-          mkdir -p website/_coll_lessonscripts/demo/
-          cp *.pdf website/_coll_lessonscripts/demo/
+          mkdir -p website/_coll_lessonscripts/inf10_db/
+          cp *.pdf website/_coll_lessonscripts/inf10_db/
 
       # Commit and push changes
       - name: Commit and push PDFs
@@ -231,8 +233,8 @@ jobs:
           cd website
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add _coll_lessonscripts/demo/*.pdf
-          git commit -m "Update Demo PDFs from ${{ github.repository }}@${{ github.sha }}" || echo "No changes to commit"
+          git add _coll_lessonscripts/inf10_db/*.pdf
+          git commit -m "Update Inf10 DB PDFs from ${{ github.repository }}@${{ github.sha }}" || echo "No changes to commit"
           git push
 
 
