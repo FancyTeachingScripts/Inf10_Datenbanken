@@ -1,4 +1,4 @@
-\Aufgabe[45]{\ifbeamer\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~\fi SQL mit Kreuzprodukt und Join}{
+\Aufgabe[45]{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ SQL mit Kreuzprodukt und Join}{
 
 Bearbeite diese Aufgabe auf \url{artemis.tum.de}. Du bekommst eine automatische Rückmeldung, ob deine Abgabe korrekt ist.
 Alle Aufgaben beziehen sich auf die Datenbank mit unten stehendem Klassendiagramm. Eine Online-Version gibt es unter \url{www.dbiu.de/bayern/}, dort ist auch das Tabellenschema zu finden.
@@ -9,7 +9,7 @@ Gib immer genau die geforderten Daten aus und nicht mehr. Sortiere nicht, wenn d
 
 }
 
-\UnterAufgabe{\ifbeamer\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~\fi SQL mit Kreuzprodukt und Join}{
+\UnterAufgabe{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ SQL mit Kreuzprodukt und Join}{
 % TODO: Ersetzen
 \begin{center}
 % \ifbeamer
@@ -113,7 +113,7 @@ Gib immer genau die geforderten Daten aus und nicht mehr. Sortiere nicht, wenn d
 \end{center}
 }
 
-\UnterAufgabe{\ifbeamer\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~\fi SQL mit Kreuzprodukt und Join}{
+\UnterAufgabe{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ SQL mit Kreuzprodukt und Join}{
 Verändere die SQL-Abfrage so, dass die Namen und Internetadressen (=url) aller Zoos und der Name und Regierungsbezirk der jeweiligen Gemeinde ausgegeben werden:
 
 \vspace{0.3cm}
@@ -129,7 +129,7 @@ Verändere die SQL-Abfrage so, dass die Namen und Internetadressen (=url) aller 
 
 }
 
-\UnterAufgabe{\ifbeamer\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~\fi SQL mit Kreuzprodukt und Join}{
+\UnterAufgabe{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ SQL mit Kreuzprodukt und Join}{
 
 Verändere die SQL-Abfrage so, dass die Namen und Straßen aller Freizeitparks und die Namen der jeweils zugehörigen Gemeinde ausgegeben werden.
 
@@ -145,7 +145,7 @@ Verändere die SQL-Abfrage so, dass die Namen und Straßen aller Freizeitparks u
 
 }
 
-\UnterAufgabe{\ifbeamer\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~\fi SQL mit Kreuzprodukt und Join}{
+\UnterAufgabe{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ SQL mit Kreuzprodukt und Join}{
 Schreibe eine SQL-Abfrage, die Namen und Art aller Schwimmbäder und den Namen und alle Einwohnerzahlen der zugehörigen Gemeinden ausgibt.
 
 \LoesungKaro{SELECT Schwimmbad.name, Schwimmbad.art, \\ Gemeinde.name, Gemeinde.einwohner$\_$m, Gemeinde.einwohner$\_$w\\
@@ -153,7 +153,7 @@ FROM Schwimmbad, Gemeinde\\
 WHERE Gemeinde.schluessel = Schwimmbad.gemeindeschluessel}{8}
 }
 
-\UnterAufgabe{\ifbeamer\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~\fi SQL mit Kreuzprodukt und Join}{
+\UnterAufgabe{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ SQL mit Kreuzprodukt und Join}{
 
 Schreibe eine SQL-Abfrage, die die Anzahl an Schwimmbädern in Gemeinden mit \emph{mehr} als 1000 weiblichen Einwohnerinnen ausgibt.
 
@@ -165,7 +165,7 @@ WHERE Gemeinde.schluessel = Schwimmbad.gemeindeschluessel\\
   AND Gemeinde.einwohner$\_$w > 1000}{8}
 }
 
-\UnterAufgabe{\ifbeamer\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~\fi SQL mit Kreuzprodukt und Join}{
+\UnterAufgabe{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ SQL mit Kreuzprodukt und Join}{
 Schreibe eine SQL-Abfrage, die die Namen aller Gemeinde in Oberbayern oder Niederbayern, zu denen ein Wanderweg führt, ausgibt. Dopplungen dürfen auftreten und sollte nicht entfernt werden!
 
 \emph{Tipp: Hier brauchst du wieder mehrere verknüpfte Bedingungen. Überlege bei der Verknüpfung von Bedingungen, ob du Klammern setzen musst!}
@@ -177,7 +177,7 @@ AND (Gemeinde.regierungsbezirk='Oberbayern' \\
 OR Gemeinde.regierungsbezirk='Niederbayern')}{10}
 }
 
-\UnterAufgabe{\ifbeamer\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~\fi SQL mit Kreuzprodukt und Join}{
+\UnterAufgabe{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ SQL mit Kreuzprodukt und Join}{
 Schreibe eine SQL-Abfrage, die aus den Tabellen Gemeinde und Wanderweg$\_$zu$\_$Gemeinde die Anzahl der Wanderwege, die zu Gemeinden mit mehr als 500 000 männlichen Einwohnern führen, ausgibt.
 
 
@@ -187,7 +187,7 @@ WHERE Gemeinde.schluessel = Wanderweg$\_$zu$\_$Gemeinde.gemeindeschluessel\\
   AND einwohner$\_$m > 500000}{8}
 }
 
-\UnterAufgabe{\ifbeamer\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~\fi SQL mit Kreuzprodukt und Join}{
+\UnterAufgabe{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ SQL mit Kreuzprodukt und Join}{
 Schreibe eine SQL-Abfrage, die eine Liste mit den Namen aller Gemeinden, die ein 'Freibad' haben, und die Namen der jeweiligen Freibäder ausgibt. 
 
 \LoesungKaro{SELECT Gemeinde.name, Schwimmbad.name\\
@@ -196,7 +196,7 @@ WHERE Gemeinde.schluessel=Schwimmbad.gemeindeschluessel\\
 AND Schwimmbad.art='Freibad'}{8}
 }
 
-\UnterAufgabe{\ifbeamer\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~\fi SQL mit Kreuzprodukt und Join}{
+\UnterAufgabe{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ SQL mit Kreuzprodukt und Join}{
 Schreibe eine SQL-Abfrage, die die Anzahl an Radwegen, die an Gemeinden im PLZ-Bereich \emphColA{größer} als 96400 angrenzen, ausgibt.
 
 \LoesungKaro{SELECT COUNT(*)\\
@@ -206,7 +206,7 @@ WHERE Gemeinde.schluessel=Radweg$\_$zu$\_$Gemeinde.gemeindeschluessel\\
 
 }
 
-\UnterAufgabe{\ifbeamer\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~\fi SQL mit Kreuzprodukt und Join}{
+\UnterAufgabe{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ SQL mit Kreuzprodukt und Join}{
 \begin{minipage}[t]{\textwidth}
 Schreibe eine SQL-Abfrage, die die Namen aller Zoos in einer Gemeinde namens 'Erlangen' ausgibt.
 
@@ -219,7 +219,7 @@ AND Gemeinde.name='Erlangen'}{8}
 
 }
 
-\UnterAufgabe{\ifbeamer\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~\fi SQL mit Kreuzprodukt und Join}{
+\UnterAufgabe{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ SQL mit Kreuzprodukt und Join}{
 
 
 
