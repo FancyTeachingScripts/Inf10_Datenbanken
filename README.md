@@ -21,6 +21,22 @@ Infos und Dokumentation der Skripte und Veröffentlichung der fertigen PDFs in a
 - Bilder/Anhänge jeweils im `img/`-Unterordner der zugehörigen Datei.
 - `selected.tex` – legt fest, was `main.tex` tatsächlich baut (i.d.R. ein `\input{_Skripte/...}`).
 
+## Veröffentlichung (GitHub)
+
+`.github/workflows/Release.yml` ruft den gemeinsamen Release-Workflow aus
+FancyScript auf und liest den Zielpfad auf valentin-herrmann.com aus der
+Repository-Variable `WEBSITE_PATH`.
+
+Einmalig pro Repo setzen — *Settings → Secrets and variables → Actions →
+Variables → New repository variable*:
+
+| Name | Wert (Beispiel) |
+|---|---|
+| `WEBSITE_PATH` | `inf10_datenbanken` |
+
+Ohne diese Variable landet der Release im leeren Pfad. Per CLI:
+`gh variable set WEBSITE_PATH --body inf09_oop --repo FancyTeachingScripts/Inf09_OOP`
+
 ## Terminal (ohne VS Code)
 
 ```bash
