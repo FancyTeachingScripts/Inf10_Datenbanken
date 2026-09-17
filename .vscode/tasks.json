@@ -4,15 +4,31 @@
         {
             "label": "compile-single-tex",
             "type": "shell",
-            "command": "tectonic",
-            "args": [
-                "-Z", "search-path=.",
-                "-Z", "search-path=template",
-                "-Z", "search-path=template/sty/moloch",
-                "-Z", "continue-on-errors",
-                "-o", "build",
-                "main.tex"
-            ],
+            "windows": {
+                "command": "powershell",
+                "args": [
+                    "-ExecutionPolicy", "Bypass",
+                    "-File", "${workspaceFolder}/template/tools/build.ps1",
+                    "-File", "main.tex",
+                    "-Out", "build"
+                ]
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "${workspaceFolder}/template/tools/build.sh",
+                    "main.tex",
+                    "build"
+                ]
+            },
+            "osx": {
+                "command": "bash",
+                "args": [
+                    "${workspaceFolder}/template/tools/build.sh",
+                    "main.tex",
+                    "build"
+                ]
+            },
             "group": "build",
             "presentation": {
                 "echo": true,
@@ -25,16 +41,34 @@
         {
             "label": "compile-single-tex (draft, ~3x faster)",
             "type": "shell",
-            "command": "tectonic",
-            "args": [
-                "-Z", "search-path=.",
-                "-Z", "search-path=template",
-                "-Z", "search-path=template/sty/moloch",
-                "-Z", "continue-on-errors",
-                "-r", "0",
-                "-o", "build",
-                "main.tex"
-            ],
+            "windows": {
+                "command": "powershell",
+                "args": [
+                    "-ExecutionPolicy", "Bypass",
+                    "-File", "${workspaceFolder}/template/tools/build.ps1",
+                    "-File", "main.tex",
+                    "-Out", "build",
+                    "-Draft"
+                ]
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "${workspaceFolder}/template/tools/build.sh",
+                    "main.tex",
+                    "build",
+                    "--draft"
+                ]
+            },
+            "osx": {
+                "command": "bash",
+                "args": [
+                    "${workspaceFolder}/template/tools/build.sh",
+                    "main.tex",
+                    "build",
+                    "--draft"
+                ]
+            },
             "group": "build",
             "presentation": {
                 "echo": true,
