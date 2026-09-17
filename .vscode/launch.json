@@ -29,6 +29,19 @@
             "outFiles": [],
             "autoAttachChildProcesses": false,
             "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "PR PREVIEW (PDF set as on GitHub)",
+            "program": "${workspaceFolder}/.vscode/dummy.js",
+            "preLaunchTask": "build-pr-preview-pdfs",
+            "console": "internalConsole",
+            "internalConsoleOptions": "neverOpen",
+            "sourceMaps": false,
+            "outFiles": [],
+            "autoAttachChildProcesses": false,
+            "skipFiles": ["<node_internals>/**"]
         }
     ]
 }
