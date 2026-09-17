@@ -1,5 +1,8 @@
-Materialien für den Datenbanken-Kurs (Inf10). Mehr Infos:
-https://valentin-herrmann.com/inf10_db/
+# Für Consumer 
+Infos und Dokumentation der Skripte und Veröffentlichung der fertigen PDFs in allen Versionen unter: https://valentin-herrmann.com/fts/
+
+
+# Für Creator
 
 ## Einrichtung (VS Code)
 
@@ -21,7 +24,14 @@ https://valentin-herrmann.com/inf10_db/
 ## Terminal (ohne VS Code)
 
 ```bash
-./init.sh   # einmalig
-tectonic -Z search-path=. -Z search-path=template -Z search-path=template/sty/moloch \
-  -Z continue-on-errors -o build main.tex # baut main.tex als PDF und speichert es in ./build/
+# einmalig repo und submodule initialisieren
+./init.sh   
+
+# baut main.tex als PDF und speichert es in ./build/
+tectonic \
+-Z search-path=. \
+-Z search-path=template \
+-Z search-path=template/sty/moloch \
+-Z continue-on-errors \
+-o build main.tex 
 ```
