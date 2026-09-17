@@ -74,6 +74,38 @@
                 "panel": "shared"
             },
             "problemMatcher": []
+        },
+        {
+            "label": "build-pr-preview-pdfs",
+            "detail": "Compiles the same fixed PDF set as .github/workflows/PR-Preview.yml",
+            "type": "shell",
+            "windows": {
+                "command": "powershell",
+                "args": [
+                    "-ExecutionPolicy", "Bypass",
+                    "-File", "${workspaceFolder}/.vscode/build-pr-preview.ps1"
+                ]
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "${workspaceFolder}/.vscode/build-pr-preview.sh"
+                ]
+            },
+            "osx": {
+                "command": "bash",
+                "args": [
+                    "${workspaceFolder}/.vscode/build-pr-preview.sh"
+                ]
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
         }
     ]
 }
