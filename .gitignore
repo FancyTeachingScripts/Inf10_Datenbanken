@@ -17,7 +17,7 @@ build/
 
 *.pdf
 
-main/pdfs/
+pdfs/
 .bash_profile
 .bashrc
 .gitconfig

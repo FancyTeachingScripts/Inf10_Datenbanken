@@ -51,19 +51,22 @@
                 "command": "powershell",
                 "args": [
                     "-ExecutionPolicy", "Bypass",
-                    "-File", "${workspaceFolder}/template/tools/build-parallel.ps1"
+                    "-File", "${workspaceFolder}/template/tools/build-parallel.ps1",
+                    "-Out", "pdfs"
                 ]
             },
             "linux": {
                 "command": "bash",
                 "args": [
-                    "${workspaceFolder}/template/tools/build-parallel.sh"
+                    "${workspaceFolder}/template/tools/build-parallel.sh",
+                    "-o", "pdfs"
                 ]
             },
             "osx": {
                 "command": "bash",
                 "args": [
-                    "${workspaceFolder}/template/tools/build-parallel.sh"
+                    "${workspaceFolder}/template/tools/build-parallel.sh",
+                    "-o", "pdfs"
                 ]
             },
             "group": "build",
@@ -83,19 +86,22 @@
                 "command": "powershell",
                 "args": [
                     "-ExecutionPolicy", "Bypass",
-                    "-File", "${workspaceFolder}/.vscode/build-pr-preview.ps1"
+                    "-File", "${workspaceFolder}/template/tools/build-preview.ps1",
+                    "-Out", "build"
                 ]
             },
             "linux": {
                 "command": "bash",
                 "args": [
-                    "${workspaceFolder}/.vscode/build-pr-preview.sh"
+                    "${workspaceFolder}/template/tools/build-preview.sh",
+                    "-o", "build"
                 ]
             },
             "osx": {
                 "command": "bash",
                 "args": [
-                    "${workspaceFolder}/.vscode/build-pr-preview.sh"
+                    "${workspaceFolder}/template/tools/build-preview.sh",
+                    "-o", "build"
                 ]
             },
             "group": "build",
