@@ -8,6 +8,9 @@ diesem Repo, sondern als Git-**Submodul** unter `template/`, gepinnt auf
 Dieses Repo enthält nur die eigenen Inhalte: `main.tex`, `selected.tex`,
 `_Aufgaben/`, `_Hefteintraege/`, `_Skripte/`.
 
+- **Nach dem Klonen einmalig:** `./init.sh` (holt `template/` und bindet
+  dessen empfohlene git-Konfiguration ein). Bei einem frisch aus diesem
+  Repo als GitHub-Template erzeugten Kursrepo ist `init.sh` bereits dabei.
 - **Bauen:** `tectonic -Z search-path=. -Z search-path=template -Z search-path=template/sty/moloch -Z continue-on-errors -o build main.tex`
   (oder die VS-Code-Tasks in `.vscode/tasks.json`). Reihenfolge des
   Suchpfads ist wichtig – `.` **muss vor** `template` stehen, siehe
