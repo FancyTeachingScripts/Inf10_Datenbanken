@@ -7,7 +7,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "MAIN (LuaLaTeX)",
+            "name": "MAIN",
             "program": "${workspaceFolder}/.vscode/dummy.js",
             "preLaunchTask": "compile-single-tex",
             "console": "internalConsole",
@@ -20,7 +20,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "ALL (./main/*.tex))",
+            "name": "ALL",
             "program": "${workspaceFolder}/.vscode/dummy.js",
             "preLaunchTask": "build-all-main-tex",
             "console": "internalConsole",
@@ -33,7 +33,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "PR PREVIEW (PDF set as on GitHub)",
+            "name": "PREVIEW",
             "program": "${workspaceFolder}/.vscode/dummy.js",
             "preLaunchTask": "build-pr-preview-pdfs",
             "console": "internalConsole",
