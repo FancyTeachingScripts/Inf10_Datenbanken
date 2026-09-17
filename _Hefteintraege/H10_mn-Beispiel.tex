@@ -36,19 +36,27 @@
 \emphColB{Ergebnistabelle des Kreuzprodukts:}\\\vspace{0.1cm}
 \begin{tabular}{c|c|c|c|c|c}
     id & kuerzel & lehrer & schule & id & ort \\\hline
-    \emphColC{1} & Her & \emphColC{1} & \emphColC{MTG} & \emphColC{MTG} & Haidh. \\
+    \emphColA{1} & Her & \emphColA{1} & \emphColC{MTG} & \emphColC{MTG} & Haidh. \\
     \emphColor{red}{2} & Ext & \emphColor{red}{1} & \emphColC{MTG} & \emphColC{MTG} & Haidh. \\
     ... & ... & ... & ... & ... & ... \\
 \end{tabular}\\
 insgesamt 2 x 3 x 2 = 12 Zeilen
 
-
-
-\vspace{0.5cm}
+\vspace{0.3cm}
 \emph{2 Spaltenpaare müssen zusammenpassen! $\Rightarrow$ Doppel-Join}\\\vspace{0.1cm}
 
     \emphColB{SELECT * \\FROM Lehrer, lehrer\_an\_schule, Schule}\\
-    \emphColC{WHERE Lehrer.id = lehrer\_an\_schule.lehrer} \\
+    \emphColA{WHERE Lehrer.id = lehrer\_an\_schule.lehrer} \\
     \emphColC{AND lehrer\_an\_schule.schule = Schule.id}
+
+\vspace{0.3cm}
+\emph{Ergebnistabelle des Doppel-Joins:}\\\vspace{0.1cm}
+\begin{tabular}{c|c|c|c|c|c}
+    id & kuerzel & lehrer & schule & id & ort \\\hline
+    \emphColA{1} & Her & \emphColA{1} & \emphColC{MTG}   & \emphColC{MTG}   & Haidh. \\
+    \emphColA{2} & Ext & \emphColA{2} & \emphColC{Dante} & \emphColC{Dante} & Sendl. \\
+    \emphColA{2} & Ext & \emphColA{2} & \emphColC{MTG}   & \emphColC{MTG}   & Haidh. \\
+\end{tabular}\\
+nur noch 3 Zeilen -- genau die Zuordnungen aus lehrer\_an\_schule
 
 }
