@@ -1,37 +1,27 @@
-Mehr Infos unter https://valentin-herrmann.com/inf10_db/
+Materialien für den Datenbanken-Kurs (Inf10). Mehr Infos:
+https://valentin-herrmann.com/inf10_db/
 
-## Architektur auf einen Blick (für Menschen & LLMs)
+## Einrichtung (VS Code)
 
-Die gemeinsame Vorlage (`sty/`, Build-Tools, CI-Workflows) liegt **nicht** in
-diesem Repo, sondern als Git-**Submodul** unter `template/`, gepinnt auf
-[`FancyTeachingScripts/FancyScript`](https://github.com/FancyTeachingScripts/FancyScript).
-Dieses Repo enthält nur die eigenen Inhalte: `main.tex`, `selected.tex`,
-`_Aufgaben/`, `_Hefteintraege/`, `_Skripte/`.
+1. Repo klonen, in VS Code öffnen.
+2. Terminal (`` Strg+` ``): `./init.sh` (einmalig).
+3. **Run and Debug** (F5) → **MAIN** baut `main.tex` (→ `build/`), **PREVIEW**
+   baut die PR-Vorschau-Auswahl (→ `build/`), **ALL** baut alle Varianten
+   (→ `pdfs/`, dauert lange).
 
-- **Nach dem Klonen einmalig:** `./init.sh` (holt `template/` und bindet
-  dessen empfohlene git-Konfiguration ein). Bei einem frisch aus diesem
-  Repo als GitHub-Template erzeugten Kursrepo ist `init.sh` bereits dabei.
-- **Bauen:** `tectonic -Z search-path=. -Z search-path=template -Z search-path=template/sty/moloch -Z continue-on-errors -o build main.tex`
-  (oder die VS-Code-Tasks in `.vscode/tasks.json`). Reihenfolge des
-  Suchpfads ist wichtig – `.` **muss vor** `template` stehen, siehe
-  [FancyScript-README](https://github.com/FancyTeachingScripts/FancyScript#kompilieren).
-- **Alle Varianten bauen:** VS-Code-Task `build-all-main-tex`
-  (→ `template/tools/build-parallel.sh`), sehr leistungsintensiv.
-- **Vorlage aktualisieren:** aus dem Submodul heraus entwickeln
-  (`$EDITOR template/sty/...`, `template/tools/build.sh main.tex` zum
-  Testen), dann `cd template && git commit && git push`, danach in diesem
-  Repo `git add template && git commit` um den neuen Stand zu pinnen. Details
-  und der volle Ablauf stehen im [FancyScript-README](https://github.com/FancyTeachingScripts/FancyScript).
-- **CI:** `.github/workflows/Release.yml` / `PR-Preview.yml` sind
-  ~10-zeilige Aufrufe der wiederverwendbaren Workflows in FancyScript
-  (`website_path: inf10_db`). PR-Previews landen als Kommentar mit
-  Links auf die kompilierten PDFs.
+## Wo kommt was hin?
 
-Nie wird die Vorlage gemergt, nur der Commit-Zeiger bewegt – alte Skripte
-bleiben stabil, auch wenn sich die Vorlage weiterentwickelt.
+- `_Skripte/` – Unterrichtsskripte, ein `.tex` pro Halbjahr/Kurs.
+- `_Aufgaben/` – Arbeitsblätter/Aufgaben.
+- `_Hefteintraege/` – Hefteinträge.
+- Bilder/Anhänge jeweils im `img/`-Unterordner der zugehörigen Datei.
+- `selected.tex` – legt fest, was `main.tex` tatsächlich baut (i.d.R. ein
+  `\input{_Skripte/...}`).
 
-## Sonstiges
+## Terminal (ohne VS Code)
 
-Im Repo befindet sich ein VS-Code Skript zum Kompilieren der main.tex und eines zum Kompilieren aller Dateien in ./main/  (Achtung, sehr leistungsintensiv). Letztere werden auf Github auch automatisch gebaut, sobald ein Release erstellt wird.
-
-Wer auch seine Skripte [hier](https://github.com/FancyTeachingScripts) gesammelt zur Verfügung stellen möchte, kann mich jederzeit für entsprechende Berechtigungen kontaktieren.
+```bash
+./init.sh   # einmalig
+tectonic -Z search-path=. -Z search-path=template -Z search-path=template/sty/moloch \
+  -Z continue-on-errors -o build main.tex
+```
