@@ -1,4 +1,4 @@
-\Aufgabe[45]{\includegraphics[height=15pt]{_Aufgaben/img/artemis.png}~~~~ Wdh: SQL Basics}{
+\Aufgabe[45]{\includegraphics[height=20pt]{_Aufgaben/img/artemis.png}~~~~ Wdh: SQL Basics}{
     Bearbeite die Aufgabe \emphColB{Wdh - SQL Basics} auf \url{artemis.tum.de}. Artemis gibt dir immer, wenn du auf Submit drückst, die ersten Zeilen der Ergebnistabelle und ob deine SQL-Abfrage (bzw. welche Teile von ihr) richtig sind, aus.
     
     Wenn du eine Abfrage richtig hast, notiere sie unten im Skript.
@@ -9,18 +9,18 @@
     
    \vspace{0.3cm} \emphColB{1)} 
    Vervollständige die SQL-Abfrage so, dass sie ID, Name, Art und URL aller Freibäder ausgibt.
-    \\\LoesungKaro{SELECT id, name, art, url\\FROM Schwimmbad\\WHERE art={"}Freibad{"} }{5}
+    \\\LoesungKaro{SELECT id, name, art, url\\FROM Schwimmbad\\WHERE art=\dq Freibad\dq}{5}
 }
 \UnterAufgabe{Wdh: SQL Basics}{
    \vspace{0.3cm} \emphColB{2)} 
-   Schreibe eine SQL-Abfrage, die ausgibt, wie viele Gemeinden es im Regierungsbezirk {"}Oberbayern{"} gibt. 
-    
-    \LoesungKaro{SELECT COUNT(*)\\FROM Gemeinde\\WHERE regierungsbezirk={"}Oberbayern{"}}{5}
-   
-   \vspace{0.3cm} \emphColB{3)} 
-   Schreibe eine SQL-Abfrage, die Name, Straße und URL (also die Internetadresse) alle Zoos in der Gemeinde mit Schluessel {"}09162000{"} ausgibt.
-   
-    \LoesungKaro{SELECT name, strasse, url\\FROM Zoo\\WHERE gemeindeschluessel = {"}09162000{"}}{5}
+   Schreibe eine SQL-Abfrage, die ausgibt, wie viele Gemeinden es im Regierungsbezirk \dq Oberbayern\dq{} gibt.
+
+    \LoesungKaro{SELECT COUNT(*)\\FROM Gemeinde\\WHERE regierungsbezirk=\dq Oberbayern\dq}{5}
+
+   \vspace{0.3cm} \emphColB{3)}
+   Schreibe eine SQL-Abfrage, die Name, Straße und URL (also die Internetadresse) alle Zoos in der Gemeinde mit Schluessel \dq 09162000\dq{} ausgibt.
+
+    \LoesungKaro{SELECT name, strasse, url\\FROM Zoo\\WHERE gemeindeschluessel = \dq 09162000\dq}{5}
 }
    
 \UnterAufgabe{Wdh: SQL Basics}{   
