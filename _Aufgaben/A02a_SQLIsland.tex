@@ -1,0 +1,43 @@
+\Aufgabe[15]{Übung: SQL Island (1)}{
+
+\begin{center}
+\includegraphics[width=0.075\textwidth]{_Aufgaben/img/A02a_person.png}\hfill
+\includegraphics[width=0.9\textwidth]{_Aufgaben/img/A02a.png}
+\end{center}
+}
+\UnterAufgabe{Übung: SQL Island (2)}{
+
+Oben siehst du ein reduziertes Tabellenschema von SQL Island, bearbeite folgende Aufgaben dazu:
+
+\begin{enumerate}
+    \item Was sind die Primärschlüssel der Tabellen, die die einzelnen Objekte eindeutig identifizieren?
+        \\$\rightarrow$ Notiert das vollständige Tabellenschema der Datenbank von SQL Island (mit Datentypen und Markierung der Primärschlüssel). Manche Datentypen sind intuitiv, andere nicht. Überlege dir, was hier sinnvoll wäre.\\
+        \hinweis{Den Datentyp Character gibt es in den meisten Datenbanksystemen nicht. Wir verwenden daher immer String (=Text).}
+        \LoesungLine{{\fontfamily{pcr}\selectfont\footnotesize
+                \textbf{BEWOHNER(\underline{int bewohnernr} , String name, int dorfnr, String geschlecht, String beruf, int gold, String status)}\\
+                \textbf{GEGENSTAND(\underline{String gegenstand}, int besitzer)}\\
+                \textbf{DORF(\underline{int dorfnr}, String name, int haeuptling)}
+            }}{3}
+    \item Stellt die Tabellen der Datenbank mit Klassenkarten dar.\\
+\end{enumerate}
+\LoesungKaroTikz{
+    \begin{class}{BEWOHNER}{0,0}
+        \attribute{int bewohnernr}
+        \attribute{String name}
+        \attribute{int dorfnr}
+        \attribute{String geschlecht}
+        \attribute{String beruf}
+        \attribute{int gold}
+        \attribute{String status}
+    \end{class}
+    \begin{class}{GEGENSTAND}{6,0}
+        \attribute{String gegenstand}
+        \attribute{int besitzer}
+    \end{class}
+    \begin{class}{DORF}{12,0}
+        \attribute{int dorfnr}
+        \attribute{String name}
+        \attribute{int haeuptling}
+    \end{class}
+}{20}
+}
