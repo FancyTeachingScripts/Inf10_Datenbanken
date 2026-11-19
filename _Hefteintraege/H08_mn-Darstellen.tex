@@ -1,23 +1,108 @@
-\Hefteintrag{1.9}{Darstellung von m:n-Beziehungen}{
+\setClassNameDisplay{LehrkraftKlasse}{lehrkraft\_unterrichtet\_klasse}
 
+\ifbeamer
+\Hefteintrag{1}{Darstellung von m:n-Beziehungen}{
 m:n-Beziehungen können im UML-Klassendiagramm auf zwei verschiedene Arten dargestellt werden:
-\vspace{0.5cm}
+\vspace{0.3cm}
 
 \emphColA{1. \LoesungLuecke{als direkte Beziehung}{15cm}}\\
 Vorteil: \LoesungLuecke{Diagramm kompakt und übersichtlich}{15cm}
 
-\vspace{0.5cm}
-% TODO: Issue #11 
-% \includegraphics[width=\textwidth]{img/mn-Beispiel}
-\vspace{3cm}
+\vspace{0.3cm}
+\begin{center}
+\begin{tikzpicture}[scale=0.85, transform shape]
+    \begin{class}[text width=3.5cm]{Lehrkraft}{0,0}
+        \attribute{int id}
+        \attribute{String name}
+    \end{class}
+    \begin{class}[text width=3.5cm]{Schulklasse}{{\linewidth/0.85-3.9cm},0}
+        \attribute{int id}
+        \attribute{String name}
+    \end{class}
+    \Loesung{
+        \biAssociationSimple{Lehrkraft.east}{m}{lehrkraft\_unterrichtet\_klasse}{n}{Schulklasse.west}
+    }
+\end{tikzpicture}
+\end{center}
+}
 
-
+\UnterHefteintrag{1}{Darstellung von m:n-Beziehungen}{
 \emphColA{2. \LoesungLuecke{mit Beziehungstabelle}{15cm}}\\
+Vorteil: \LoesungLuecke{direkt in relationaler Datenbank umsetzbar}{15cm}
+
+\vspace{0.3cm}
+\begin{center}
+\begin{tikzpicture}[scale=0.82, transform shape]
+    \begin{class}[text width=3.5cm]{Lehrkraft}{0,0}
+        \attribute{int id}
+        \attribute{String name}
+    \end{class}
+    \Loesung{
+        \begin{class}[text width=6.5cm]{LehrkraftKlasse}{{(\linewidth/0.82-3.9cm)/2},0}
+            \attribute{int lehrkraft\_id}
+            \attribute{int schulklasse\_id}
+        \end{class}
+        \uniAssociation{[shift={(0,0.3)}]LehrkraftKlasse.west}{n}{lehrkraft\_id}{1}{[shift={(0,0.3)}]Lehrkraft.east}
+        \uniAssociation{[shift={(0,0.3)}]LehrkraftKlasse.east}{n}{schulklasse\_id}{1}{[shift={(0,0.3)}]Schulklasse.west}
+    }
+    \begin{class}[text width=3.5cm]{Schulklasse}{{\linewidth/0.82-3.9cm},0}
+        \attribute{int id}
+        \attribute{String name}
+    \end{class}
+\end{tikzpicture}
+\end{center}
+}
+\else
+\Hefteintrag{1.5}{Darstellung von m:n-Beziehungen}{
+
+m:n-Beziehungen können im UML-Klassendiagramm auf zwei verschiedene Arten dargestellt werden:
+\vspace{0.3cm}
+
+\emphColA{1. \LoesungLuecke{als direkte Beziehung}{15cm}}\\
 Vorteil: \LoesungLuecke{Diagramm kompakt und übersichtlich}{15cm}
 
-\vspace{1.5cm}
-% TODO: Issue #11 
-% \includegraphics[width=\textwidth]{img/mn-Beispiel}
-\vspace{3cm}
+\vspace{0.3cm}
+\begin{center}
+\begin{tikzpicture}[scale=0.75, transform shape]
+    \begin{class}[text width=3.5cm]{Lehrkraft}{0,0}
+        \attribute{int id}
+        \attribute{String name}
+    \end{class}
+    \begin{class}[text width=3.5cm]{Schulklasse}{{\linewidth/0.75-3.9cm},0}
+        \attribute{int id}
+        \attribute{String name}
+    \end{class}
+    \Loesung{
+        \biAssociationSimple{Lehrkraft.east}{m}{lehrkraft\_unterrichtet\_klasse}{n}{Schulklasse.west}
+    }
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+
+\emphColA{2. \LoesungLuecke{mit Beziehungstabelle}{15cm}}\\
+Vorteil: \LoesungLuecke{direkt in relationaler Datenbank umsetzbar}{15cm}
+
+\vspace{0.3cm}
+\begin{center}
+\begin{tikzpicture}[scale=0.75, transform shape]
+    \begin{class}[text width=3.5cm]{Lehrkraft}{0,0}
+        \attribute{int id}
+        \attribute{String name}
+    \end{class}
+    \Loesung{
+        \begin{class}[text width=7.5cm]{LehrkraftKlasse}{{(\linewidth/0.75-3.9cm)/2},0}
+            \attribute{}
+        \end{class}
+        \uniAssociation{[shift={(0,0.3)}]LehrkraftKlasse.west}{n}{lehrkraft\_id}{1}{[shift={(0,0.3)}]Lehrkraft.east}
+        \uniAssociation{[shift={(0,0.3)}]LehrkraftKlasse.east}{n}{schulklasse\_id}{1}{[shift={(0,0.3)}]Schulklasse.west}
+    }
+    \begin{class}[text width=3.5cm]{Schulklasse}{{\linewidth/0.75-3.9cm},0}
+        \attribute{int id}
+        \attribute{String name}
+    \end{class}
+\end{tikzpicture}
+\end{center}
 
 }
+\fi

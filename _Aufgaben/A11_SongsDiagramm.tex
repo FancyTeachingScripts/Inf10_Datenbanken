@@ -1,8 +1,68 @@
+\setClassNameDisplay{SongInPlaylist}{Song\_in\_Playlist}
+\ifbeamer
+    \definecolor{relColor}{RGB}{0, 210, 255}
+\else
+    \definecolor{relColor}{RGB}{0, 140, 180}
+\fi
+
 \Aufgabe{Song-Datenbank Diagramme: \texorpdfstring{\url{www.dbiu.de/songs}}{www.dbiu.de/songs}}{
 
-Zeichne die \emphColB{Klassenkarten} der Tabellen und \emphColB{Song und Playlist}. Zeichne anschließend mit \emphColC{zwei verschiedenen Farben} die beiden \emphColC{Darstellungsmöglichkeiten der Beziehung} zwischen den beiden Tabellen ein.
+Zeichne die \emphColB{Klassenkarten} der Tabellen \emphColB{Song} und \emphColB{Playlist}. Zeichne anschließend mit \emphColC{zwei verschiedenen Farben} die beiden \emphColC{Darstellungsmöglichkeiten der Beziehung} zwischen den beiden Tabellen ein.
 
-% TODO: Issue #11 
-\LoesungKaro{\vspace{4cm}}{15}
-%\LoesungKaro{\includegraphics[width=0.5\textwidth]{img/07_Songs.png}}{20}
+\LoesungKaro{
+\begin{center}
+\begin{tikzpicture}[scale=0.78, transform shape]
+    \begin{class}[text width=4.2cm]{Song}{0,0}
+        \attribute{int id}
+        \attribute{String titel}
+        \attribute{String genre}
+        \attribute{String interpret}
+    \end{class}
+
+    \begin{class}[text width=3.8cm]{Playlist}{11,0}
+        \attribute{int id}
+        \attribute{String titel}
+    \end{class}
+
+    % Farbe 2: Beziehungstabelle in relColor
+    {
+    \renewcommand{\umldrawcolor}{relColor}
+    \renewcommand{\umltextcolor}{relColor}
+    \begin{class}[text width=4.5cm]{SongInPlaylist}{5.5,-2.6}
+        \attribute{int song\_id}
+        \attribute{int playlist\_id}
+    \end{class}
+    }
+
+    % Farbe 1: direkte m:n-Beziehung
+    \draw[very thick, colA] 
+        ([shift={(0,0.5)}]Song.east) to 
+            node[pos=0.08, above=2pt]{m}
+            node[midway, above=2pt]{\emph{enthalten\_in}}
+            node[pos=0.92, above=2pt]{n}
+        ([shift={(0,0.5)}]Playlist.west);
+
+    % Farbe 2: mit Beziehungstabelle
+    \draw[very thick, -{Straight Barb[scale=1.5]}, relColor] 
+        ([shift={(0,0.3)}]SongInPlaylist.west) to[out=180, in=270] 
+            node[pos=0.1, above=2pt]{n}
+            node[midway, below left]{song\_id}
+            node[pos=0.9, left=2pt]{1}
+        (Song.south);
+
+    \draw[very thick, -{Straight Barb[scale=1.5]}, relColor] 
+        ([shift={(0,0.3)}]SongInPlaylist.east) to[out=0, in=270] 
+            node[pos=0.1, above=2pt]{n}
+            node[midway, below right]{playlist\_id}
+            node[pos=0.9, right=2pt]{1}
+        (Playlist.south);
+
+    % Legende
+    \node[anchor=north, align=center] at (5.5,-4.8) {
+        \textbf{\textcolor{colA}{Farbe 1: Direkte m:n-Beziehung}}\qquad\qquad
+        \textbf{\textcolor{relColor}{Farbe 2: Mit Beziehungstabelle (zwei 1:n-Beziehungen)}}
+    };
+\end{tikzpicture}
+\end{center}
+}{15}
 }
